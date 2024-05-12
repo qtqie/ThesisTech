@@ -7,5 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('Login',Login::class);
-Route::resource('Expert',ExpertController::class);
+Route::get('/login',[Login::class, 'LoginView']);
+Route::get('/addexpert',[ManageExpertProfile::class, 'addExpert']);

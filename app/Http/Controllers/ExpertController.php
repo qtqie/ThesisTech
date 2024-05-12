@@ -9,9 +9,9 @@ class ExpertController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function addExpert()
     {
-        return view(ManageExpert.ExpertView);
+        return view(ManageExpertProfile.addExpert);
     }
 
     /**

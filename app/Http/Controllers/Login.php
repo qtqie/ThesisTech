@@ -9,7 +9,7 @@ class Login extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function LoginView()
     {
         return view('Login.LoginView');
     }
