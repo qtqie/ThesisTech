@@ -9,10 +9,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/profile', function () {
+//     return view('profile');
+// })->name('myprofile');
+
 Route::get('/login',[Login::class, 'LoginView']);
 Route::get('/addexpert',[ManageExpertProfile::class, 'addExpert']);
 Auth::routes();
 
 // Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['role:platinum']);
