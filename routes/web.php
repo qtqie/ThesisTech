@@ -13,3 +13,7 @@ Route::get('/', function () {
 
 Route::get('/login',[Login::class, 'LoginView']);
 Route::get('/addexpert',[ManageExpertProfile::class, 'addExpert']);
+Route::post('/editexpert',[ManageExpertProfile::class, 'editExpert']);
+Route::get('/searchexpert',[ManageExpertProfile::class, 'searchExpert']);
+Route::get('/editexpert',[ManageExpertProfile::class, 'editExpert']);
+Route::get('/generatereport',[ManageExpertProfile::class, 'generateReport']);

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Expert; // Make sure this path is correct
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ExpertController extends Controller
 {
@@ -39,7 +42,6 @@ class ExpertController extends Controller
         return view('ManageExpertProfile.viewlistExpert');
     }
 
-
     /**
      * Show the form for creating a new resource.
      */
@@ -53,7 +55,43 @@ class ExpertController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the request
+        $validatedData = $request->validate([
+            'fname' => 'required',
+            'address' => 'required',
+            'email' => 'required|email',
+            'numphone' => 'required',
+            'gender' => 'required',
+            'university' => 'required',
+            'file' => 'required|file', // Assuming you want a file upload
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $expert = new Expert();
+            $expert->E_Name = $validatedData['fname'];
+            $expert->E_Address = $validatedData['address'];
+            $expert->E_Email = $validatedData['email'];
+            $expert->E_PhoneNum = $validatedData['numphone'];
+            $expert->E_Gender = $validatedData['gender'];
+            $expert->E_University = $validatedData['university'];
+            
+            // Assuming file is being uploaded and saved
+            if ($request->hasFile('file')) {
+                $filePath = $request->file('file')->store('experts', 'public');
+                $expert->E_FilePath = $filePath;
+            }
+
+            $expert->save();
+
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Expert added successfully!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Failed to add expert: ' . $e->getMessage());
+        }
     }
 
     /**

@@ -69,14 +69,14 @@
           <div class="row mb-4">
             <div class="col">
               <div data-mdb-input-init class="form-outline">
-                <input type="text" id="form9Example1" class="form-control input-custom" />
+                <input type="text" id="form9Example1" name = "fname"class="form-control input-custom" />
                 <label class="form-label" for="form9Example1">Full name</label>
               </div>
             </div>
             <!-- Address input --> 
             <div class="col">
               <div data-mdb-input-init class="form-outline">
-                <input type="text" id="form9Example2" class="form-control input-custom" />
+                <input type="text" id="form9Example2" name = "address" class="form-control input-custom" />
                 <label class="form-label" for="form9Example2">Address</label>
               </div>
             </div>
@@ -85,14 +85,14 @@
           <div class="row mb-4">
             <div class="col">
               <div data-mdb-input-init class="form-outline">
-                <input type="text" id="form9Example3" class="form-control input-custom" />
+                <input type="text" id="form9Example3" name ="email" class="form-control input-custom" />
                 <label class="form-label" for="form9Example3">Email</label>
               </div>
             </div>
             <!-- Number Phone input --> 
             <div class="col">
               <div data-mdb-input-init class="form-outline">
-                <input type="text" id="form9Example4" class="form-control input-custom" />
+                <input type="text" id="form9Example4" name ="numphone" class="form-control input-custom" />
                 <label class="form-label" for="form9Example4">Tel</label>
               </div>
             </div>
@@ -112,14 +112,14 @@
   <!-- University input --> 
   <div class="col">
               <div data-mdb-input-init class="form-outline">
-                <input type="email" id="typeEmail" class="form-control input-custom" />
+                <input type="email" id="typeEmail" name="university" class="form-control input-custom" />
                 <label class="form-label" for="typeEmail">University</label>
               </div>
             </div>
           </div>
           <div class="col">
     <div class="form-outline">
-      <input type="file" id="fileInput" class="form-control input-custom" multiple /><br>
+      <input type="file" id="fileInput"  name="file" class="form-control input-custom" multiple /><br>
     </div>
 
           <div class="float-end ">

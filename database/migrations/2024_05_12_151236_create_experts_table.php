@@ -12,7 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('experts', function (Blueprint $table) {
-            $table->id();
+            $table->string('E_ID')->primary();
+            $table->string('E_Name');
+            $table->string('E_Email');
+            $table->string('E_Gender');
+            $table->string('E_Address');
+            $table->string('E_Password');
+            $table->string('E_PhoneNum');
+            $table->string('E_University');
+            $table->string('E_Publication');
+            $table->string('E_Paper');
+            $table->string('E_Topic');
             $table->timestamps();
         });
     }

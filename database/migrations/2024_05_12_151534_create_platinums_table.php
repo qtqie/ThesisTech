@@ -23,5 +23,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('platinums');
+        $table->string('P_ID')->primary();
+        $table->string('P_Name');
+        $table->string('P_Address');
+        $table->string('P_Password');
+        $table->timestamps();
+
     }
 };
