@@ -11,7 +11,17 @@ class ExpertController extends Controller
      */
     public function addExpert()
     {
-        return view(ManageExpertProfile.addExpert);
+        return view('ManageExpertProfile.addExpert');
+    }
+
+    public function viewExpert()
+    {
+        return view('ManageExpertProfile.viewExpert');
+    }
+
+    public function addExpert()
+    {
+        return view('ManageExpertProfile.addExpert');
     }
 
     /**
