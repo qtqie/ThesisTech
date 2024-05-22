@@ -19,10 +19,26 @@ class ExpertController extends Controller
         return view('ManageExpertProfile.viewExpert');
     }
 
-    public function addExpert()
+    public function editExpert()
     {
-        return view('ManageExpertProfile.addExpert');
+        return view('ManageExpertProfile.editExpert');
     }
+
+    public function searchExpert()
+    {
+        return view('ManageExpertProfile.searchExpert');
+    }
+
+    public function generateReport()
+    {
+        return view('ManageExpertProfile.generateReport');
+    }
+
+    public function viewlistExpert()
+    {
+        return view('ManageExpertProfile.viewlistExpert');
+    }
+
 
     /**
      * Show the form for creating a new resource.

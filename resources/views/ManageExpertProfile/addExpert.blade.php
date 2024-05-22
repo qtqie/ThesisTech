@@ -5,18 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Expert Information</title>
+    <title>ThesisTech</title>
+    <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
     <style>
     body {
-      background-color: #ad1fff;
+      background-color: #8664C6;
       background-image: url('');
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
     }
+
+    .white-text {
+    color: white;
+}
   </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
+  <!-- Responsive navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">ThesisTech</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
   <body>
   <div class="container-fluid" style="padding: 0;">
     <div class="row mt-3 mx-3" style="margin-top:25px ;">
@@ -29,7 +48,6 @@
       <p class="white-text">Insert Your Expert Information Here!</p>
     </div>
     <div class="text-center">
-      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-white btn-rounded back-button">Go back</button>
     </div>
 
 
@@ -42,6 +60,11 @@
         </div>
 
         <form class="mb-0">
+
+        <div class="mb-3">
+                    <label for="exampleInputPhoto" class="form-label">Photo</label>
+                    <input type="file" class="form-control" id="exampleInputPhoto">
+                </div>
 
           <div class="row mb-4">
             <div class="col">
@@ -102,7 +125,7 @@
           <div class="float-end ">
             <!-- Submit button -->
             <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-rounded"
-              style="background-color: #44006b ;">Submit</button>
+              style="background-color: #808080 ;">Submit</button>
           </div>
 
         </form>

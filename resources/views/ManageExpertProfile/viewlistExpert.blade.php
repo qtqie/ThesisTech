@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="text-center my-5">
                     <h1 class="fw-bolder">Welcome!</h1>
-                    <p class="lead mb-0">All your expert informations are here</p>
+                    <p class="lead mb-0">All the expert informations are here</p>
                 </div>
             </div>
         </header>
@@ -36,27 +36,16 @@
             <div class="row">
                 <!-- Blog entries-->
                 <div class="col-lg-8">
-                    <!-- Featured blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://media.istockphoto.com/id/825083248/photo/mature-mixed-race-man-smiling.jpg?s=612x612&w=0&k=20&c=CkjBBkdepaK7LvP7dGAbRjY0vqWs0jnlmpha1-2VMoE=" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 14, 2023</div>
-                            <h2 class="card-title">Prof. Dr. Luiz Eduardo Galvao Martins</h2>
-                            <p class="card-text">Professor, Faculty of Computing, Universiti Malaysia<br>legmartins@unifesp.br<br></p>
-                            <a class="btn btn-primary" href="#!">Edit →</a>
-                        </div>
-                    </div>
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
                         <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
+                        <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://media.istockphoto.com/id/1194745993/photo/smiling-muslim-woman-wearing-hijab.jpg?s=612x612&w=0&k=20&c=8yu_OxGaAiDQas7hjLBy8-CnjY40r5Gxw06dZV8lxFs=" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">March 19, 2023</div>
+                                    <div class="small text-muted"> helizahelmi@gmail.com</div>
                                     <h2 class="card-title h4">Prof. Dr. Heliza Ahmad</h2>
-                                    <p class="card-text">Software Engineer<br> helizahelmi@gmail.com</p>
-                                    <a class="btn btn-primary" href="#!">Edit →</a>
+                                    <p class="card-text">Associate Professor of Computer Science, Monash University</p>
+                                    <a class="btn btn-primary" href="#!">View →</a>
                                 </div>
                             </div>
                         </div>
@@ -65,10 +54,34 @@
                             <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-600nw-1714666150.jpg" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">February 24, 2023</div>
+                                    <div class="small text-muted">tony.gorshek@yahoo.com</div>
                                     <h2 class="card-title h4">Prof. Dr. Tony Gorschek</h2>
-                                    <p class="card-text">Design Engineer<br> tony.gorshek@yahoo.com</p>
-                                    <a class="btn btn-primary" href="#!">Edit →</a>
+                                    <p class="card-text">Full Professor, Oakland University</p>
+                                    <a class="btn btn-primary" href="#!">View →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="https://www.josejeuland.com/wp-content/uploads/2022/04/headshotindoor.jpg" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">AndreaA@yahoo.com</div>
+                                    <h2 class="card-title h4">Andrea Arcuri</h2>
+                                    <p class="card-text">Professor of Software Engineering at Kristiana University College</p>
+                                    <a class="btn btn-primary" href="#!">View →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="https://www.barcouncil.org.uk/static/d9b8edd5-3e49-4324-ad512086447ed774/250x167_highestperformance_/MM.jpg" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">dianajasmine@gmail.com<</div>
+                                    <h2 class="card-title h4">Diana Jasmine, Ph.D</h2>
+                                    <p class="card-text">Professor of Computer Science, University Technology Malaysia</p>
+                                    <a class="btn btn-primary" href="#!">View →</a>
                                 </div>
                             </div>
                         </div>
