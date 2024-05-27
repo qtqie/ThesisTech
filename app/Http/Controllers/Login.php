@@ -11,7 +11,7 @@ class Login extends Controller
      */
     public function LoginView()
     {
-        return view('Login.LoginView');
+        return view('auth.login');
     }
 
     /**
