@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
+@section('content')   
+
+<div class="main">
     <div class="row justify-content-center py-4">
         <div class="col-md-8">
             <div class="card border-0 shadow-sm">
@@ -13,11 +14,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    
                 </div>
             </div>
         </div>
     </div>
+    @include('calendar')
 </div>
+
 @endsection
+
