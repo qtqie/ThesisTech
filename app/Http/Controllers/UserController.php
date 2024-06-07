@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller
 {
@@ -218,6 +219,22 @@ class UserController extends Controller
             $profile->save();
 
         return redirect('register')->with('success', 'User data inserted successfully!');
+    }
+
+    public function report()
+    {
+        $users = User::get();
+
+        $data = [
+            'title' => 'Users List',
+            'date' => date('m/d/Y'),
+            'users' => $users
+        ];
+
+        $date = date('m/d/Y');
+
+        $pdf = PDF::loadView('UserProfile.report', $data);
+        return $pdf->download("users-lists-{$date}.pdf");
     }
 
 }

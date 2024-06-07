@@ -60,4 +60,5 @@ Route::put('profile/{user}/update-image', [UserController::class, 'upload'])->na
 Route::get('/insert-user-data/{userId}', [UserController::class, 'insertUserDataForm'])->name('insert.user.data.form');
 Route::post('/insert-user-data/{userId}', [UserController::class, 'insertUserData'])->name('insert.user.data');
 
+Route::get('generate-report-pdf',[UserController::class,'report'])->name('generate.report');
 });
