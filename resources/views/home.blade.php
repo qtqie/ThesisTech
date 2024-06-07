@@ -14,12 +14,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
                 </div>
             </div>
         </div>
     </div>
-    @include('calendar')
 </div>
 
 @endsection
