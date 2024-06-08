@@ -31,74 +31,58 @@
                 </div>
             </div>
         </header>
-        <!-- Page content-->
-        <div class="container">
-            <div class="row">
-                <!-- Blog entries-->
-                <div class="col-lg-8">
-                    <!-- Featured blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://media.istockphoto.com/id/825083248/photo/mature-mixed-race-man-smiling.jpg?s=612x612&w=0&k=20&c=CkjBBkdepaK7LvP7dGAbRjY0vqWs0jnlmpha1-2VMoE=" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 14, 2023</div>
-                            <h2 class="card-title">Prof. Dr. Luiz Eduardo Galvao Martins</h2>
-                            <p class="card-text">Professor, Faculty of Computing, Universiti Malaysia<br>legmartins@unifesp.br<br></p>
-                            <a class="btn btn-primary" href="#!">Edit →</a>
-                        </div>
-                    </div>
                     <!-- Nested row for non-featured blog posts-->
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://media.istockphoto.com/id/1194745993/photo/smiling-muslim-woman-wearing-hijab.jpg?s=612x612&w=0&k=20&c=8yu_OxGaAiDQas7hjLBy8-CnjY40r5Gxw06dZV8lxFs=" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">March 19, 2023</div>
-                                    <h2 class="card-title h4">Prof. Dr. Heliza Ahmad</h2>
-                                    <p class="card-text">Software Engineer<br> helizahelmi@gmail.com</p>
-                                    <a class="btn btn-primary" href="#!">Edit →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-600nw-1714666150.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">February 24, 2023</div>
-                                    <h2 class="card-title h4">Prof. Dr. Tony Gorschek</h2>
-                                    <p class="card-text">Design Engineer<br> tony.gorshek@yahoo.com</p>
-                                    <a class="btn btn-primary" href="#!">Edit →</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="filter-container">
+                        <label for="filter">Filter</label>
+                        <select id="filter" wire:model="nyFilter" class="filter-select">
+                            <option value="">No Selected</option>
+                            @foreach ($experts as $expert)
+                                <option value="{{ $expert->e_ID }}">{{ $expert->e_Expertise}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <!-- Pagination-->
-                    <nav aria-label="Pagination">
-                        <hr class="my-0" />
-                        <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                        </ul>
-                    </nav>
+
+                    <form action="{{url('SearchExpert')}}" method="GET">
+                        <input type="text" name="query" class="search-input" placeholder="Search...">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
                 </div>
-                <!-- Side widgets-->
-                <div class="col-lg-4">
-                    <!-- Search widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Search</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Search your expert here ..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
-                        </div>
-                    </div>
+
+            </nav>
+
+
+            @if(isset($experts))
+                <div class="container mt-5">
+                    <h4>Search Results for "{{ $query }}"</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Workspace</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($experts as $expert)
+                                <tr>
+                                    <td>{{ $expert->E_Name }}</td>
+                                    <td>{{ $expert->E_University }}</td>
+                                    <td>{{ $expert->E_Adress }}</td>
+                                    <td>{{ $expert->E_Email }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="7">No experts found matching your search criteria.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            @endif
+      
+        </div>
+    </div>
                     <!-- Categories widget-->
                     <div class="card mb-4">
                         <div class="card-header">Research Group</div>
