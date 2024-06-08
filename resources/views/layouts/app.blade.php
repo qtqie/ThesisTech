@@ -17,14 +17,27 @@
 	<!-- Scripts -->
 	@vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/calendar.js','resources/css/app.css'])
 </head>
-
-<body class="h-100 bg-light">
+@if (auth()->check())
+    @if (auth()->user()->role == 'platinum')
+        <body class="h-100 bg-light">
+    @elseif (auth()->user()->role == 'staff')
+        <body class="h-100" style="background-color: MintCream;">
+    @elseif (auth()->user()->role == 'mentor')
+        <body class="h-100" style="background-color: AliceBlue;">
+    @endif
+@else
+    <body class="h-100 bg-light">
+@endif
 	<div id="app" class="h-100">
 		<main class="h-100">
 			@auth
 				<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 					<div class="container">
+<<<<<<< HEAD
 						<a class="navbar-brand" href="{{ url('/home') }}">
+=======
+						<a class="navbar-brand" href="{{ route('profile.index') }}">
+>>>>>>> 28d0a5aac536970d806bc87b658914fde5a343b8
 							{{ config('app.name', 'ThesisTech') }}
 						</a>
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -37,12 +50,17 @@
 							<!-- Left Side Of Navbar -->
 							<ul class="navbar-nav me-auto">
 								<li class="nav-item dropdown">
+<<<<<<< HEAD
 									<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
 										aria-haspopup="true" aria-expanded="false" v-pre>
+=======
+									<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+>>>>>>> 28d0a5aac536970d806bc87b658914fde5a343b8
 										{{__('User Profile')}}
 									</a>
 
 									<div class="dropdown-menu dropdown-menu-end border-0 shadow" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
 										<a class="dropdown-item" href=""
 											onclick="event.preventDefault();">
 											{{ __('View Profile') }}
@@ -51,6 +69,22 @@
 											onclick="event.preventDefault();">
 											{{ __('Search User') }}
 										</a>
+=======
+										<a class="dropdown-item" href="{{ route('profile.show', ['user' => auth()->user()->id]) }}">
+											{{ __('View Own Profile') }}
+										</a>
+										<a class="dropdown-item" href=" {{ route('profile.index') }} ">
+											{{ __('Search User') }}
+										</a>
+										@if(Auth::user()->hasRole('staff'))
+										<a class="dropdown-item" href="{{ route('register') }}">
+											{{ __('Register New User') }}
+										</a>
+										<a class="dropdown-item" href="{{ route('generate.report') }}">
+											{{ __('Generate Report') }}
+										</a>
+										@endif
+>>>>>>> 28d0a5aac536970d806bc87b658914fde5a343b8
 									</div>
 								</li>
 								<li class="nav-item dropdown">
