@@ -33,6 +33,7 @@
         </header>
                     <!-- Nested row for non-featured blog posts-->
                     <div class="filter-container">
+                        <div class="text-center my-5">
                         <label for="filter">Filter</label>
                         <select id="filter" wire:model="nyFilter" class="filter-select">
                             <option value="">No Selected</option>
@@ -43,7 +44,9 @@
                     </div>
 
                     <form action="{{url('SearchExpert')}}" method="GET">
+                        <div class="text-center my-5">
                         <input type="text" name="query" class="search-input" placeholder="Search...">
+                        <div class="text-center my-5">
                         <button type="submit" class="search-button">Search</button>
                     </form>
                 </div>
@@ -59,8 +62,9 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Workspace</th>
-                                <th>Address</th>
                                 <th>Email</th>
+                                <th>Paper</th>
+                                <th>Publication</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,8 +72,9 @@
                                 <tr>
                                     <td>{{ $expert->E_Name }}</td>
                                     <td>{{ $expert->E_University }}</td>
-                                    <td>{{ $expert->E_Adress }}</td>
                                     <td>{{ $expert->E_Email }}</td>
+                                    <td>{{ $expert->E_Paper }}</td>
+                                    <td>{{ $expert->E_Publication }}</td>
                                 </tr>
                             @empty
                                 <tr>
@@ -83,40 +88,10 @@
       
         </div>
     </div>
-                    <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Research Group</div>
-                        <div class="card-body">The academicians in the computing faculty are activelyinvolved in research and development in various areas related to computing and information technology fields.These are the following group</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">CSRG</a></li>
-                                        <li><a href="#!">VISIC</a></li>
-                                        <li><a href="#!">MIRG</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Cy-SIG</a></li>
-                                        <li><a href="#!">DBIS</a></li>
-                                        <li><a href="#!">SERG</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ThesisTech 2024</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -69,38 +69,40 @@
           @endif
 
 
-          <form class="mb-0" method="post" action="{{ route('storeExpert') }}" >
+          <form class="mb-0" method="post" action="{{ route('storeExpert') }}">
             @csrf
             @method('post')
-
+        
             <div class="row mb-4">
                 <div class="col">
                     <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="form9Example1">Full name</label>
                         <input type="text" id="form9Example1" name="E_Name" class="form-control input-custom" />
-                        <label class="form-label" for="form9Example1">Full name</label>
                     </div>
                 </div>
                 <div class="col">
                     <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="form9Example2">Address</label>
                         <input type="text" id="form9Example2" name="E_Address" class="form-control input-custom" />
-                        <label class="form-label" for="form9Example2">Address</label>
                     </div>
                 </div>
             </div>
+        
             <div class="row mb-4">
                 <div class="col">
                     <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="form9Example3">Email</label>
                         <input type="email" id="form9Example3" name="E_Email" class="form-control input-custom" />
-                        <label class="form-label" for="form9Example3">Email</label>
                     </div>
                 </div>
                 <div class="col">
                     <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="form9Example4">Tel</label>
                         <input type="text" id="form9Example4" name="E_PhoneNum" class="form-control input-custom" />
-                        <label class="form-label" for="form9Example4">Tel</label>
                     </div>
                 </div>
             </div>
+        
             <div class="row mb-4">
                 <div class="col">
                     <div class="form-check form-check-inline">
@@ -113,23 +115,64 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+        
+            <div class="col mb-4">
                 <div data-mdb-input-init class="form-outline">
+                  <label class="form-label" for="typeEmail">University</label>
                     <input type="text" id="typeEmail" name="E_University" class="form-control input-custom" />
-                    <label class="form-label" for="typeEmail">University</label>
                 </div>
             </div>
+        
+            <div class="col mb-4">
+                <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="publicationType">Choose a publication type</label>
+                    <select id="E_Publication" name="E_Publication" class="form-select input-custom">
+                        <option value="journalArticle">Journal Article</option>
+                        <option value="conferencePaper">Conference Paper</option>
+                        <option value="book">Book</option>
+                        <option value="magazineArticle">Magazine Article</option>
+                        <option value="newspaperArticle">Newspaper Article</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col mb-4">
+              <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="paper">Expert Paper</label>
+                  <input type="text" id="E_Paper" name="E_Paper" class="form-control input-custom" />
+              </div>
+          </div>
+
+          <div class="col mb-4">
+            <div data-mdb-input-init class="form-outline">
+              <label class="form-label" for="paper">Expert Topic</label>
+                <input type="text" id="E_Topic" name="E_Topic" class="form-control input-custom" />
+            </div>
+        </div>
+
+        
             <div class="float-end">
                 <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-rounded" style="background-color: #808080;">Submit</button>
-                <a href="{{url('viewExpert')}}" class="btn btn-danger">BACK</a>
+                <a href="{{ url('viewExpert') }}" class="btn btn-danger">BACK</a>
             </div>
         </form>
+        
         
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+      <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ThesisTech 2024</p></div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+</body>
+</html>
 
     <!-- Include Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

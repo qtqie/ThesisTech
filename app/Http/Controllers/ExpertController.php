@@ -14,6 +14,11 @@ class ExpertController extends Controller
         return view('ManageExpertProfile.addExpert');
     }
 
+    public function generatereport()
+    {
+        return view('ManageExpertProfile.generatereport');
+    }
+
     public function searchExpert(Request $request)
     {
     $query = $request->input('query');
@@ -29,28 +34,33 @@ class ExpertController extends Controller
 
 
     public function store(Request $request)
-    {
-        $data = $request->validate([
-            'E_Name' => 'required',
-            'E_Email' => 'required|email',
-            'E_PhoneNum' => 'required',
-            'E_Gender' => 'required',
-            'E_University' => 'required',
-            'E_Address' => 'required'
-        ]);
+{
+    $data = $request->validate([
+        'E_Name' => 'required',
+        'E_Email' => 'required|email',
+        'E_PhoneNum' => 'required',
+        'E_Gender' => 'required',
+        'E_University' => 'required',
+        'E_Address' => 'required',
+        'E_Publication' => 'required',
+        'E_Paper' => 'required',
+        'E_Topic' => 'required',
+       
+    ]);
 
-        $newExpert = experts::create($data);
+    experts::create($data);
 
-        return redirect()->route('storeExpert')->with('success', 'Expert Registered Successfully');
-    }
+    return redirect()->route('storeExpert')->with('success', 'Expert Registered Successfully');
+}
+
 
     public function editExpert($id)
     {
-        $data = experts::where('id','=', $id)->first();
-        return view('ManageExpertProfile.editExpert', compact('data'));
+        $expert = experts::find($id);
+        return view('experts.editExpert', compact('experts'));
     }
 
-    public function UpdateExpert(Request $request)
+    public function updateExpert(Request $request)
     {
         $request->validate([
             'E_Name' => 'required',
@@ -62,30 +72,16 @@ class ExpertController extends Controller
 
         ]);
 
-        $id = $request->id;
-        $E_Name = $request->E_Name;
-        $E_Email = $request->E_Email;
-        $E_PhoneNum = $request->E_PhoneNum;
-        $E_Gender = $request->E_Gender;
-        $E_University = $request->E_University;
-        $E_Address = $request->E_Address;
-
-        experts::where('id', '=', $id)->update([
-            'E_Name'=>$E_Name,
-            'E_Email'=>$E_Email,
-            'E_PhoneNum'=>$E_PhoneNum,
-            'E_Gender'=>$E_Gender,
-            'E_University'=>$E_University,
-            'E_Address'=>$E_Address,
-        ]);   
+        $expert = experts::find($id);
+        $expert->update($request->all());
 
         return redirect()->back()->with('success', 'Expert Updated Successfully');
-
     }
+
 
     public function deleteExpert($id)
     {
-        experts::where('id', '=', $id)->delete();
+        experts::where($id)->delete();
         return redirect()->back()->with('success', 'Expert Deleted Successfully');
 
     }
@@ -95,6 +91,11 @@ class ExpertController extends Controller
     {
         $data = experts::all();
         return view('ManageExpertProfile.viewExpert', compact('data'));
+    }
+
+    public function create()
+    {
+        return view('ManageExpertProfile.addExpert');
     }
 
 

@@ -9,12 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ExpertController;
 
-/*Route::get('/addexpert',[ManageExpertProfile::class, 'addExpert']);
-Route::post('/editexpert',[ManageExpertProfile::class, 'editExpert']);
-Route::get('/searchexpert',[ManageExpertProfile::class, 'searchExpert']);
-Route::get('/editexpert',[ManageExpertProfile::class, 'editExpert']);
-Route::get('/generatereport',[ManageExpertProfile::class, 'generateReport']);*/
-
 Auth::routes();
 Auth::routes(['verify' => true]);
 
@@ -46,20 +40,24 @@ Route::post('/email/verification-notification', [VerificationController::class, 
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-Route::get('/', [UserController::class, 'index'])->name('profile.index');
+    Route::get('/', [UserController::class, 'index'])->name('profile.index');
 
-Route::get('profile/{user}', [UserController::class, 'show'])->name('profile.show');
-Route::get('profile/search/{user}', [UserController::class, 'search'])->name('profile.search');
-Route::delete('profile/{user}', [UserController::class, 'destroy'])->name('user.delete');
+    Route::get('profile/{user}', [UserController::class, 'show'])->name('profile.show');
+    Route::get('profile/search/{user}', [UserController::class, 'search'])->name('profile.search');
+    Route::delete('profile/{user}', [UserController::class, 'destroy'])->name('user.delete');
 
-Route::get('profile/{user}/edit-profile', [UserController::class, 'edit'])->name('profile.edit');
-Route::put('profile/{user}/update-profile', [UserController::class, 'update'])->name('profile.update.profile');
+    Route::get('profile/{user}/edit-profile', [UserController::class, 'edit'])->name('profile.edit');
+    Route::put('profile/{user}/update-profile', [UserController::class, 'update'])->name('profile.update.profile');
 
-Route::get('profile/{user}/edit-image', [UserController::class, 'edit_image'])->name('profile.edit.image');
-Route::put('profile/{user}/update-image', [UserController::class, 'upload'])->name('profile.update.image');
+    Route::get('profile/{user}/edit-image', [UserController::class, 'edit_image'])->name('profile.edit.image');
+    Route::put('profile/{user}/update-image', [UserController::class, 'upload'])->name('profile.update.image');
 
-Route::get('/insert-user-data/{userId}', [UserController::class, 'insertUserDataForm'])->name('insert.user.data.form');
-Route::post('/insert-user-data/{userId}', [UserController::class, 'insertUserData'])->name('insert.user.data');
+    Route::get('profile/{user}/insert-user-data', [UserController::class, 'insertUserDataForm'])->name('insert.user.data.form');
+    Route::post('profile/{user}/insert-user-data', [UserController::class, 'insertUserData'])->name('insert.user.data');
+
+
+});
+
 
 Route::get('generate-report-pdf',[UserController::class,'report'])->name('generate.report');
 Route::get('/addExpert', [ExpertController::class, 'addExpert'])->name('addExpert');
@@ -72,5 +70,3 @@ Route::get('/generatereport', [ExpertController::class, 'generateReport']);
 Route::get('/viewlist-expert', [ExpertController::class, 'viewlistExpert']);
 Route::get('/deleteExpert/{id}', [ExpertController::class, 'deleteExpert']);
 Route::get('/view', [ExpertController::class, 'view']);
-
-});

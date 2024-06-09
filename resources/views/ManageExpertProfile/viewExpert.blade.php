@@ -154,7 +154,7 @@
                                   <td>
                                   <a href="{{url('ExpertDetail/'.$experts->id)}}" class="btn btn-primary">VIEW</a>
                                   <a href="{{url('editExpert/'.$experts->id)}}" class="btn btn-primary">EDIT</a>
-                                  <a href="{{url('deleteExpert/'.$experts->id)}}" class="btn btn-danger">DELETE</a>
+                                  <a href="{{url('deleteExpert')}}" class="btn btn-danger">DELETE</a>
   
                                   </td>
   
@@ -172,7 +172,7 @@
   </div>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
-        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ThesisTech 2024</p></div>
     </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
