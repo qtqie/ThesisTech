@@ -7,107 +7,83 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="viewexpert.css">
     <title>ThesisTech</title>
-     <style>
+    <style>
         body {
-            font-family: Arial, sans-serif; /* Ensure the body uses the desired font */
+            font-family: Arial, sans-serif;
+            background: url('https://img.freepik.com/free-photo/free-photo-black-grunge-abstract-background-pattern-wallpaper_1340-33834.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #0f0f0f; /* Ensures text is readable on a dark background */
         }
-
-        .bubble {
-            width: 200px; /* Set the width of the bubble */
-            height: 200px; /* Set the height of the bubble */
-            background-color: #808080; /* Set the background color */
-            color: white; /* Set the text color */
-            border-radius: 50%; /* Make it a circle */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #333232;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .container {
+        .form-container h2 {
+            margin-bottom: 20px;
             text-align: center;
         }
-
-        .greeting {
-
-            padding: 8px 8px 8px 16px;
-            text-decoration: none;
-            font-size: 18px; /* Adjusted font size */
-            color: #818181;
-            display: block;
+        .form-group label {
+            font-weight: bold;
         }
-
-        .textbox {
-            background-color: #808080;
-            width: 250px;
-            padding: 10px;
-            font-size: 16px;
-            border: 3px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            justify-content: center;
-            align-items: center;
-            text: center;
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
         }
-
-        .sidenav {
-            height: 100%; /* Full-height: remove this if you want "auto" height */
-            width: 200px; /* Adjusted width of the sidebar */
-            position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-            z-index: 1; /* Stay on top */
-            top: 0; /* Stay at the top */
-            left: 0;
-            background-color: #111; /* Black */
-            overflow-x: hidden; /* Disable horizontal scroll */
-            padding-top: 20px;
-            font-family: Arial, sans-serif; /* Match the font with the rest of the site */
-        }
-
-        .sidenav a, .dropdown-toggle {
-            padding: 8px 8px 8px 16px;
-            text-decoration: none;
-            font-size: 18px; /* Adjusted font size */
-            color: #818181;
-            display: block;
-        }
-
-        .sidenav a:hover, .dropdown-toggle:hover {
-            color: #f1f1f1;
-        }
-
-        main {
-            margin-left: 170px; /* Same as the width of the sidebar */
-            padding: 0px;
-        }
-
-        .dropdown-menu a {
-            color: #111; /* Default text color */
-        }
-
-        .dropdown-menu a:hover {
-            color: #f1f1f1; /* Text color on hover */
-        }
-
-        /* Remove border between navbar and main page */
-        .navbar {
-            margin-bottom: 0;
-            border: none;
-        }
-
-        .container.px-lg-5, .p-4, .p-lg-5 {
-            margin: 0;
-            padding: 0;
-        }
-
-        .logo {
-            border-radius: 50%; /* Make it a circle */
-            width: 50px; /* Set the width */
-            height: 50px; /* Set the height */
-        }
-
     </style>
-  
-  <title>Expert List</title>
+   </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">ThesisTech</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Profile</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPublications" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Publications
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownPublications">
+                                <li><a class="dropdown-item" href="">Publication 1</a></li>
+                                <li><a class="dropdown-item" href="#!">Publication 2</a></li>
+                                <li><a class="dropdown-item" href="#!">Publication 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownExperts" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Experts
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownExperts">
+                                <li><a class="dropdown-item" href="listexpert">View Experts</a></li>
+                                <li><a class="dropdown-item" href="addExpert">Add Experts</a></li>
+                                <li><a class="dropdown-item" href="#!">Generate Report</a></li>
+                            </ul>
+                            <li class="nav-item"><a class="nav-link" href="#!">Log Out</a></li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Masthead-->
+        <header class="masthead">
+        <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
   <div class="container">
       <div class="row" style="margin:10px;">                    
@@ -120,12 +96,16 @@
           <div class="col-14">                    
               <div class="card">
                   <div class="card-header">
-                      <h3>Expert List</h3>
                       <div style="margin-right:10px">
                   <a href="{{url('addExpert')}}" style="float:right;" class="btn btn-primary">ADD EXPERT</a><br>
               </div><br>
   
                       <table class = "table">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Expert Information
+                            </div>
                       <thead>
                           <tr>
                               <th>ID</th>

@@ -58,15 +58,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 });
 
-
-Route::get('generate-report-pdf',[UserController::class,'report'])->name('generate.report');
 Route::get('/addExpert', [ExpertController::class, 'addExpert'])->name('addExpert');
 Route::post('/store-expert', [ExpertController::class, 'store'])->name('storeExpert');
 Route::get('/viewexpert', [ExpertController::class, 'viewExpert'])->name('listexpert');
 Route::get('editExpert/{id}', [ExpertController::class, 'editExpert'])->name('editExpert');
 Route::post('updateExpert', [ExpertController::class, 'updateExpert'])->name('updateExpert');
-Route::get('/searchexpert', [ExpertController::class, 'searchExpert']);
-Route::get('/generatereport', [ExpertController::class, 'generateReport']);
+Route::get('/searchExpert', [ExpertController::class, 'searchExpert']);
+Route::get('/generatereport', [ExpertController::class, 'generateReport'])->name('generateReport');
 Route::get('/listView', [ExpertController::class, 'viewlistExpert'])->name('listview');
 Route::delete('/deleteExpert/{experts}', [ExpertController::class, 'deleteExpert'])->name('deleteExpert');
 
