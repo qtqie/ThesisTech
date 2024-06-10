@@ -58,6 +58,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 });
 
+Route::get('/about', [ExpertController::class, 'about'])->name('aboutUs');
 Route::get('/addExpert', [ExpertController::class, 'addExpert'])->name('addExpert');
 Route::post('/store-expert', [ExpertController::class, 'store'])->name('storeExpert');
 Route::get('/viewexpert', [ExpertController::class, 'viewExpert'])->name('listexpert');

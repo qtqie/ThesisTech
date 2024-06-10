@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ExpertController extends Controller
 {
+
+    public function about()
+    {
+        return view('ManageExpertProfile.about');
+    }
+
     public function addExpert()
     {
         return view('ManageExpertProfile.addExpert');
