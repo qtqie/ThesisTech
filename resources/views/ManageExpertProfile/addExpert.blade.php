@@ -71,7 +71,6 @@
 
           <form class="mb-0" method="post" action="{{ route('storeExpert') }}">
             @csrf
-            @method('post')
         
             <div class="row mb-4">
                 <div class="col">

@@ -8,7 +8,7 @@
     <title>ThesisTech</title>
     <body>
       <div class="container-form">
-        <h3>EDIT EXPERT</h3>
+        <h3>Expert Informations</h3>
 
         @if(Session::has('success'))
             <div class="alert alert-success" role="alert">
@@ -19,13 +19,12 @@
         <form action="{{ route('updateExpert') }}" method="post">
             @csrf
             @method('post')
-            <input type="hidden" name="id" value="{{$data->id}}">
+            <input type="hidden" name="id" value="{{$experts->id}}">
             <div class="section">
-                <div class="section-header">Expert’s details</div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="E_Name">NAME</label>
-                        <input type="text" id="E_Name" name="E_Name" required value="{{$data->E_Name}}">
+                        <input type="text" id="E_Name" name="E_Name" required value="{{$experts->E_Name}}">
                         @error('E_Name')
                         <div class="alert alert-danger" role="alert"></div>
                             {{$message}}
@@ -34,32 +33,32 @@
                     <div class="form-row">
                       <div class="form-group">
                           <label for="E_Email">EMAIL</label>
-                          <input type="email" id="E_Email" name="E_Email" required value="{{$data->E_Email}}">
+                          <input type="email" id="E_Email" name="E_Email" required value="{{$experts->E_Email}}">
                       </div>
                       <div class="form-group">
                         <label for="E_Gender">GENDER</label>
-                        <input type="text" id="E_Gender" name="E_Gender" required value="{{$data->E_Gender}}">
+                        <input type="text" id="E_Gender" name="E_Gender" required value="{{$experts->E_Gender}}">
                     </div>
                 </div>
                 <div class="form-group">
                   <label for="E_Address">ADDRESS</label>
-                  <input type="text" id="E_Address" name="E_Address" required value="{{$data->E_Address}}">
+                  <input type="text" id="E_Address" name="E_Address" required value="{{$experts->E_Address}}">
               </div>
           </div>
                     <div class="form-group">
                         <label for="E_University">WORKPLACE</label>
-                        <input type="text" id="E_University" name="E_University" required value="{{$data->E_University}}">
+                        <input type="text" id="E_University" name="E_University" required value="{{$experts->E_University}}">
                     </div>
                 </div>
                     <div class="form-group">
                         <label for="E_PhoneNum">PHONE NUMBER</label>
-                        <input type="tel" id="E_PhoneNum" name="E_PhoneNum" required value="{{$data->E_PhoneNum}}">
+                        <input type="tel" id="E_PhoneNum" name="E_PhoneNum" required value="{{$experts->E_PhoneNum}}">
                     </div>
                 </div>
 
                 <div class="form-group">
                   <label for="E_University">WORKPLACE</label>
-                  <input type="text" id="E_University" name="E_University" required value="{{$data->E_University}}">
+                  <input type="text" id="E_University" name="E_University" required value="{{$experts->E_University}}">
               </div>
           </div>
             </div>

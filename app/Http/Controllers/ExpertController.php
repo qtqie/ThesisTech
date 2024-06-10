@@ -1,7 +1,9 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\experts;
 use Illuminate\Support\Facades\DB;
@@ -48,19 +50,33 @@ class ExpertController extends Controller
        
     ]);
 
+    $expert = experts::create([
+        'E_Name' => $request->E_Name,
+        'E_Email' => $request->E_Email,
+        'E_PhoneNum' => $request->E_PhoneNum,
+        'E_Gender' => $request->E_Gender,
+        'E_University'=> $request->E_University,
+        'E_Address' => $request->E_Address,
+        'E_Publication' => $request->E_Publication,
+        'E_Paper' => $request->E_Paper,
+        'E_Topic'=> $request->E_Topic,
+    
+    ]);
+
+
     experts::create($data);
 
     return redirect()->route('storeExpert')->with('success', 'Expert Registered Successfully');
 }
 
 
-    public function editExpert($id)
-    {
-        $expert = experts::find($id);
-        return view('experts.editExpert', compact('experts'));
-    }
+public function EditExpert($id)
+{
+    $experts = experts::where('id','=', $id)->first();
+    return view('ManageExpertProfile.editExpert', compact('experts'));
+}
 
-    public function updateExpert(Request $request)
+    public function updateExpert(Request $request, experts $experts): RedirectResponse
     {
         $request->validate([
             'E_Name' => 'required',
@@ -72,25 +88,44 @@ class ExpertController extends Controller
 
         ]);
 
-        $expert = experts::find($id);
-        $expert->update($request->all());
+        
+    $expert = update([
+        'E_Name' => $request->E_Name,
+        'E_Email' => $request->E_Email,
+        'E_PhoneNum' => $request->E_PhoneNum,
+        'E_Gender' => $request->E_Gender,
+        'E_University'=> $request->E_University,
+        'E_Address' => $request->E_Address,
+        'E_Publication' => $request->E_Publication,
+        'E_Paper' => $request->E_Paper,
+        'E_Topic'=> $request->E_Topic,
+    
+    ]);
+
+        $experts = experts::find($experts);
+        $experts->update($request->all());
 
         return redirect()->back()->with('success', 'Expert Updated Successfully');
     }
 
-
-    public function deleteExpert($id)
+    public function deleteExpert(experts $experts): RedirectResponse
     {
-        experts::where($id)->delete();
-        return redirect()->back()->with('success', 'Expert Deleted Successfully');
-
+        $experts->delete();
+        return redirect(route('listexpert'))->with('success', 'Expert Information deleted successfully.');
     }
+    
 
 
     public function viewExpert()
     {
         $data = experts::all();
         return view('ManageExpertProfile.viewExpert', compact('data'));
+    }
+
+    public function listView()
+    {
+        $data = experts::all();
+        return view('ManageExpertProfile.viewlistExpert', compact('data'));
     }
 
     public function create()

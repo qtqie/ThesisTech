@@ -152,9 +152,13 @@
                                   <td>{{$experts->E_PhoneNum}}</td>
                                   <td>{{$experts->E_University}}</td>
                                   <td>
-                                  <a href="{{url('ExpertDetail/'.$experts->id)}}" class="btn btn-primary">VIEW</a>
+                                  <a href="{{ route('listview') }}" class="btn btn-primary">VIEW</a>
                                   <a href="{{url('editExpert/'.$experts->id)}}" class="btn btn-primary">EDIT</a>
-                                  <a href="{{url('deleteExpert')}}" class="btn btn-danger">DELETE</a>
+                                  <form action="{{ route('deleteExpert', $experts->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">DELETE</button>
+                                </form>
   
                                   </td>
   

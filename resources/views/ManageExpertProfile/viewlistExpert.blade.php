@@ -61,31 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://www.josejeuland.com/wp-content/uploads/2022/04/headshotindoor.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">AndreaA@yahoo.com</div>
-                                    <h2 class="card-title h4">Andrea Arcuri</h2>
-                                    <p class="card-text">Professor of Software Engineering at Kristiana University College</p>
-                                    <a class="btn btn-primary" href="#!">View →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://www.barcouncil.org.uk/static/d9b8edd5-3e49-4324-ad512086447ed774/250x167_highestperformance_/MM.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">dianajasmine@gmail.com<</div>
-                                    <h2 class="card-title h4">Diana Jasmine, Ph.D</h2>
-                                    <p class="card-text">Professor of Computer Science, University Technology Malaysia</p>
-                                    <a class="btn btn-primary" href="#!">View →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        
                     <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
@@ -100,6 +76,40 @@
                         </ul>
                     </nav>
                 </div>
+                
+<div class="container-form">
+    <form action="{{url('UpdateExpert')}}" method="POST">
+        @csrf
+        <div class="section">
+            <div class="section-header">Expert’s details</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="e_Name"><strong>NAME</label>
+                    <p class="expert-detail">{{$data->e_Name}}</p>
+                    <label for="e_Name"><strong>WORKPLACE</label>
+                    <p class="expert-detail">{{$data->e_University}}</p>
+                    <label for="e_Name"><strong>EMAIL</label>
+                    <p class="expert-detail">{{$data->e_Email}}</p>
+                    <label for="e_Name"><strong>PHONE NUMBER</label>
+                    <p class="expert-detail">{{$data->e_PhoneNum}}</p>
+                    <label for="e_Name"><strong>EXPERTISE</label>
+                    <p class="expert-detail">{{$data->e_Expertise}}</p>
+                    <label for="e_Name"><strong>TITLE RESEARCH</label>
+                    <p class="expert-detail">{{$data->e_TitleResearch}}</p>
+                    <label for="e_Name"><strong>PAPER</label>
+                    <p class="expert-detail">{{$data->e_Paper}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <a href="{{url('List')}}" class="btn btn-primary">BACK</a>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+
+@endsection
                 <!-- Side widgets-->
                 <div class="col-lg-4">
                     <!-- Search widget-->

@@ -67,6 +67,6 @@ Route::get('editExpert/{id}', [ExpertController::class, 'editExpert'])->name('ed
 Route::post('updateExpert', [ExpertController::class, 'updateExpert'])->name('updateExpert');
 Route::get('/searchexpert', [ExpertController::class, 'searchExpert']);
 Route::get('/generatereport', [ExpertController::class, 'generateReport']);
-Route::get('/viewlist-expert', [ExpertController::class, 'viewlistExpert']);
-Route::get('/deleteExpert/{id}', [ExpertController::class, 'deleteExpert']);
-Route::get('/view', [ExpertController::class, 'view']);
+Route::get('/listView', [ExpertController::class, 'viewlistExpert'])->name('listview');
+Route::delete('/deleteExpert/{experts}', [ExpertController::class, 'deleteExpert'])->name('deleteExpert');
+
