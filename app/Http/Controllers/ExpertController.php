@@ -18,22 +18,30 @@ class ExpertController extends Controller
 
     public function generatereport()
     {
-        return view('ManageExpertProfile.generatereport');
+        $data = experts::all();
+        return view('ManageExpertProfile.generateReport', compact('data'));
     }
 
-    public function searchExpert(Request $request)
+    public function view()
     {
-    $query = $request->input('query');
+        $data = experts::all();
+        return view('ManageExpertProfile.view', compact('data'));
+    }
 
-    $experts = experts::where('E_Name', 'like', "%$query%")
+
+    public function searchExpert(Request $request)
+{
+
+    $query = $request->input('query');
+    $data = experts::where('E_Name', 'like', "%$query%")
         ->orWhere('E_University', 'like', "%$query%")
         ->orWhere('E_Gender', 'like', "%$query%")
         ->orWhere('E_Address', 'like', "%$query%")
+        ->orWhere('E_Paper', 'like', "%$query%")
         ->get();
 
-    return view('ManageExpertProfile/searchExpert', compact('experts', 'query'));
-    }
-
+    return view('ManageExpertProfile.searchExpert', compact('data', 'query'));
+}
 
     public function store(Request $request)
 {

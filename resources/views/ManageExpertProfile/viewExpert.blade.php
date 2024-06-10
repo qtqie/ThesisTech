@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('https://img.freepik.com/free-photo/free-photo-black-grunge-abstract-background-pattern-wallpaper_1340-33834.jpg') no-repeat center center fixed;
+            background: url('') no-repeat center center fixed;
             background-size: cover;
             color: #0f0f0f; /* Ensures text is readable on a dark background */
         }
@@ -63,6 +63,7 @@
                                 <li><a class="dropdown-item" href="listexpert">View Experts</a></li>
                                 <li><a class="dropdown-item" href="addExpert">Add Experts</a></li>
                                 <li><a class="dropdown-item" href="#!">Generate Report</a></li>
+                                <li><a class="dropdown-item" href="searchExpert">Search Expert</a></li>
                             </ul>
                             <li class="nav-item"><a class="nav-link" href="#!">Log Out</a></li>
                         </li>
@@ -70,17 +71,11 @@
                 </div>
             </div>
         </nav>
-        
-        <!-- Masthead-->
-        <header class="masthead">
-        <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="text-center text-white">
-                            </form>
-                        </div>
-                    </div>
+        <header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Welcome!</h1>
+                    <p class="lead mb-0">All your expert informations are here</p>
                 </div>
             </div>
         </header>
