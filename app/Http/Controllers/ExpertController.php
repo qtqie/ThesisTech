@@ -74,7 +74,7 @@ class ExpertController extends Controller
 
     experts::create($data);
 
-    return redirect()->route('storeExpert')->with('success', 'Expert Registered Successfully');
+    return redirect()->route('addExpert')->with('success', 'Expert Registered Successfully');
 }
 
 
@@ -97,7 +97,7 @@ public function EditExpert($id)
         ]);
 
         
-    $expert = update([
+    $experts->update([
         'E_Name' => $request->E_Name,
         'E_Email' => $request->E_Email,
         'E_PhoneNum' => $request->E_PhoneNum,

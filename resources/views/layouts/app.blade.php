@@ -15,13 +15,13 @@
 	<link rel="stylesheet" href="https://fonts.bunny.net/css?family=Nunito">
 
 	<!-- Scripts -->
-	@vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/calendar.js','resources/css/app.css'])
+	@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 @if (auth()->check())
     @if (auth()->user()->role == 'platinum')
         <body class="h-100 bg-light">
     @elseif (auth()->user()->role == 'staff')
-        <body class="h-100" style="background-color: MintCream;">
+        <body class="h-100" style="background-color: MintCream; height: 100vh;">
     @elseif (auth()->user()->role == 'mentor')
         <body class="h-100" style="background-color: AliceBlue;">
     @endif
@@ -33,11 +33,7 @@
 			@auth
 				<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 					<div class="container">
-<<<<<<< HEAD
-						<a class="navbar-brand" href="{{ url('/home') }}">
-=======
 						<a class="navbar-brand" href="{{ route('profile.index') }}">
->>>>>>> 28d0a5aac536970d806bc87b658914fde5a343b8
 							{{ config('app.name', 'ThesisTech') }}
 						</a>
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -50,26 +46,11 @@
 							<!-- Left Side Of Navbar -->
 							<ul class="navbar-nav me-auto">
 								<li class="nav-item dropdown">
-<<<<<<< HEAD
-									<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-										aria-haspopup="true" aria-expanded="false" v-pre>
-=======
 									<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
->>>>>>> 28d0a5aac536970d806bc87b658914fde5a343b8
 										{{__('User Profile')}}
 									</a>
 
 									<div class="dropdown-menu dropdown-menu-end border-0 shadow" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
-										<a class="dropdown-item" href=""
-											onclick="event.preventDefault();">
-											{{ __('View Profile') }}
-										</a>
-										<a class="dropdown-item" href=""
-											onclick="event.preventDefault();">
-											{{ __('Search User') }}
-										</a>
-=======
 										<a class="dropdown-item" href="{{ route('profile.show', ['user' => auth()->user()->id]) }}">
 											{{ __('View Own Profile') }}
 										</a>
@@ -84,7 +65,6 @@
 											{{ __('Generate Report') }}
 										</a>
 										@endif
->>>>>>> 28d0a5aac536970d806bc87b658914fde5a343b8
 									</div>
 								</li>
 								<li class="nav-item dropdown">
@@ -94,13 +74,17 @@
 									</a>
 
 									<div class="dropdown-menu dropdown-menu-end border-0 shadow" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href=""
-											onclick="event.preventDefault();">
-											{{ __('View Profile') }}
+										<a class="dropdown-item" href="{{ route('listexpert') }}">
+											{{ __('View Expert') }}
 										</a>
-										<a class="dropdown-item" href=""
-											onclick="event.preventDefault();">
-											{{ __('Search User') }}
+										<a class="dropdown-item" href="{{ route('addExpert') }}">
+											{{ __('Add Expert') }}
+										</a>
+										<a class="dropdown-item" href="{{ route('generateReport') }}">
+											{{ __('Generate Report') }}
+										</a>
+										<a class="dropdown-item" href="{{ route('searchExpert') }}">
+											{{ __('Search Expert') }}
 										</a>
 									</div>
 								</li>
@@ -152,6 +136,9 @@
 				@yield('content')
 		</main>
 	</div>
+		<footer class="py-3 bg-white border-top shadow-sm mt-auto">
+			<p class="m-0 text-center text-black">Copyright &copy; ThesisTech 2024</p>
+		</footer>
 </body>
 
 </html>

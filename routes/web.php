@@ -55,7 +55,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('profile/{user}/insert-user-data', [UserController::class, 'insertUserDataForm'])->name('insert.user.data.form');
     Route::post('profile/{user}/insert-user-data', [UserController::class, 'insertUserData'])->name('insert.user.data');
 
-
+    Route::get('generate-report-pdf',[UserController::class,'report'])->name('generate.report');
 });
 
 Route::get('/addExpert', [ExpertController::class, 'addExpert'])->name('addExpert');
