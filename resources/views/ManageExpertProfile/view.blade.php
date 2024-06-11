@@ -105,6 +105,34 @@
         @endforeach
       </tbody>
     </table>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const searchInput = document.getElementById('search');
+          const userTableBody = document.getElementById('user-table-body');
+  
+          searchInput.addEventListener('input', function () {
+              const query = searchInput.value.toLowerCase();
+              const rows = userTableBody.getElementsByTagName('tr');
+  
+              Array.from(rows).forEach(function (row) {
+                  const cells = row.getElementsByTagName('td');
+                  let match = false;
+  
+                  Array.from(cells).forEach(function (cell) {
+                      if (cell.textContent.toLowerCase().indexOf(query) > -1) {
+                          match = true;
+                      }
+                  });
+  
+                  if (match) {
+                      row.style.display = '';
+                  } else {
+                      row.style.display = 'none';
+                  }
+              });
+          });
+      });
+  </script>
   </div>
   <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ThesisTech 2024</p></div>

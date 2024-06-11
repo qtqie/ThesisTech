@@ -37,16 +37,15 @@ class ExpertController extends Controller
 
     public function searchExpert(Request $request)
 {
-
     $query = $request->input('query');
-    $data = experts::where('E_Name', 'like', "%$query%")
+    $experts = experts::where('E_Name', 'like', "%$query%")
         ->orWhere('E_University', 'like', "%$query%")
         ->orWhere('E_Gender', 'like', "%$query%")
         ->orWhere('E_Address', 'like', "%$query%")
-        ->orWhere('E_Paper', 'like', "%$query%")
+        ->orWhere('E_Publication', 'like', "%$query%") // Add this line for publication search
         ->get();
 
-    return view('ManageExpertProfile.searchExpert', compact('data', 'query'));
+    return view('ManageExpertProfile.searchExpert', compact('experts', 'query'));
 }
 
     public function store(Request $request)
@@ -103,7 +102,7 @@ public function EditExpert($id)
         ]);
 
         
-    $expert = update([
+    $experts = update([
         'E_Name' => $request->E_Name,
         'E_Email' => $request->E_Email,
         'E_PhoneNum' => $request->E_PhoneNum,

@@ -94,6 +94,11 @@
                       <div style="margin-right:10px">
                   <a href="{{url('addExpert')}}" style="float:right;" class="btn btn-primary">ADD EXPERT</a><br>
               </div><br>
+              <div class="mb-4">
+                <div class="input-group">
+                    <input type="text" id="search" class="form-control" placeholder="Search users...">
+                </div>
+            </div>
   
                       <table class = "table">
                         <div class="card mb-4">
@@ -144,6 +149,34 @@
                           @endforeach
                       </tbody>
                       </table>
+                      <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const searchInput = document.getElementById('search');
+                            const userTableBody = document.getElementById('user-table-body');
+                    
+                            searchInput.addEventListener('input', function () {
+                                const query = searchInput.value.toLowerCase();
+                                const rows = userTableBody.getElementsByTagName('tr');
+                    
+                                Array.from(rows).forEach(function (row) {
+                                    const cells = row.getElementsByTagName('td');
+                                    let match = false;
+                    
+                                    Array.from(cells).forEach(function (cell) {
+                                        if (cell.textContent.toLowerCase().indexOf(query) > -1) {
+                                            match = true;
+                                        }
+                                    });
+                    
+                                    if (match) {
+                                        row.style.display = '';
+                                    } else {
+                                        row.style.display = 'none';
+                                    }
+                                });
+                            });
+                        });
+                    </script>
                   </div>
               </div>
           </div>
