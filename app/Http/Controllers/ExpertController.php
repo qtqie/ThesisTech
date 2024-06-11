@@ -1,128 +1,148 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Models\Expert; // Make sure this path is correct
+use App\Models\experts;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ExpertController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function addExpert()
     {
         return view('ManageExpertProfile.addExpert');
     }
 
-    public function viewExpert()
+    public function generatereport()
     {
-        return view('ManageExpertProfile.viewExpert');
+        $data = experts::all();
+        return view('ManageExpertProfile.generateReport', compact('data'));
     }
 
-    public function editExpert()
+    public function view()
     {
-        return view('ManageExpertProfile.editExpert');
+        $data = experts::all();
+        return view('ManageExpertProfile.view', compact('data'));
     }
 
-    public function searchExpert()
-    {
-        return view('ManageExpertProfile.searchExpert');
-    }
 
-    public function generateReport()
-    {
-        return view('ManageExpertProfile.generateReport');
-    }
+    public function searchExpert(Request $request)
+{
 
-    public function viewlistExpert()
-    {
-        return view('ManageExpertProfile.viewlistExpert');
-    }
+    $query = $request->input('query');
+    $data = experts::where('E_Name', 'like', "%$query%")
+        ->orWhere('E_University', 'like', "%$query%")
+        ->orWhere('E_Gender', 'like', "%$query%")
+        ->orWhere('E_Address', 'like', "%$query%")
+        ->orWhere('E_Paper', 'like', "%$query%")
+        ->get();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    return view('ManageExpertProfile.searchExpert', compact('data', 'query'));
+}
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
+{
+    $data = $request->validate([
+        'E_Name' => 'required',
+        'E_Email' => 'required|email',
+        'E_PhoneNum' => 'required',
+        'E_Gender' => 'required',
+        'E_University' => 'required',
+        'E_Address' => 'required',
+        'E_Publication' => 'required',
+        'E_Paper' => 'required',
+        'E_Topic' => 'required',
+       
+    ]);
+
+    $expert = experts::create([
+        'E_Name' => $request->E_Name,
+        'E_Email' => $request->E_Email,
+        'E_PhoneNum' => $request->E_PhoneNum,
+        'E_Gender' => $request->E_Gender,
+        'E_University'=> $request->E_University,
+        'E_Address' => $request->E_Address,
+        'E_Publication' => $request->E_Publication,
+        'E_Paper' => $request->E_Paper,
+        'E_Topic'=> $request->E_Topic,
+    
+    ]);
+
+
+    experts::create($data);
+
+    return redirect()->route('storeExpert')->with('success', 'Expert Registered Successfully');
+}
+
+
+public function EditExpert($id)
+{
+    $experts = experts::where('id','=', $id)->first();
+    return view('ManageExpertProfile.editExpert', compact('experts'));
+}
+
+    public function updateExpert(Request $request, experts $experts): RedirectResponse
     {
-        // Validate the request
-        $validatedData = $request->validate([
-            'fname' => 'required',
-            'address' => 'required',
-            'email' => 'required|email',
-            'numphone' => 'required',
-            'gender' => 'required',
-            'university' => 'required',
-            'file' => 'required|file', // Assuming you want a file upload
+        $request->validate([
+            'E_Name' => 'required',
+            'E_Email' => 'required|email',
+            'E_PhoneNum' => 'required',
+            'E_Gender' => 'required',
+            'E_University' => 'required',
+            'E_Address' => 'required'
+
         ]);
 
-        DB::beginTransaction();
+        
+    $expert = update([
+        'E_Name' => $request->E_Name,
+        'E_Email' => $request->E_Email,
+        'E_PhoneNum' => $request->E_PhoneNum,
+        'E_Gender' => $request->E_Gender,
+        'E_University'=> $request->E_University,
+        'E_Address' => $request->E_Address,
+        'E_Publication' => $request->E_Publication,
+        'E_Paper' => $request->E_Paper,
+        'E_Topic'=> $request->E_Topic,
+    
+    ]);
 
-        try {
-            $expert = new Expert();
-            $expert->E_Name = $validatedData['fname'];
-            $expert->E_Address = $validatedData['address'];
-            $expert->E_Email = $validatedData['email'];
-            $expert->E_PhoneNum = $validatedData['numphone'];
-            $expert->E_Gender = $validatedData['gender'];
-            $expert->E_University = $validatedData['university'];
-            
-            // Assuming file is being uploaded and saved
-            if ($request->hasFile('file')) {
-                $filePath = $request->file('file')->store('experts', 'public');
-                $expert->E_FilePath = $filePath;
-            }
+        $experts = experts::find($experts);
+        $experts->update($request->all());
 
-            $expert->save();
-
-            DB::commit();
-
-            return redirect()->back()->with('success', 'Expert added successfully!');
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->with('error', 'Failed to add expert: ' . $e->getMessage());
-        }
+        return redirect()->back()->with('success', 'Expert Updated Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function deleteExpert(experts $experts): RedirectResponse
     {
-        //
+        $experts->delete();
+        return redirect(route('listexpert'))->with('success', 'Expert Information deleted successfully.');
+    }
+    
+
+
+    public function viewExpert()
+    {
+        $data = experts::all();
+        return view('ManageExpertProfile.viewExpert', compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function listView()
     {
-        //
+        $data = experts::all();
+        return view('ManageExpertProfile.viewlistExpert', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function create()
     {
-        //
+        return view('ManageExpertProfile.addExpert');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+
 }
+
+
+    
