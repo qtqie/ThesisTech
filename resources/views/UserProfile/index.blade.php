@@ -67,10 +67,7 @@
                 @endforeach
             </tbody>            
         </table>
-    </div>
-</div>
-
-<script>
+        <script>
     document.addEventListener('DOMContentLoaded', function () {
         const searchInput = document.getElementById('search');
         const userTableBody = document.getElementById('user-table-body');
@@ -98,4 +95,6 @@
         });
     });
 </script>
+    </div>
+</div>
 @endsection

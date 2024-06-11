@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ExpertController extends Controller
 {
+
+    public function about()
+    {
+        return view('ManageExpertProfile.about');
+    }
+
     public function addExpert()
     {
         return view('ManageExpertProfile.addExpert');
@@ -31,16 +37,15 @@ class ExpertController extends Controller
 
     public function searchExpert(Request $request)
 {
-
     $query = $request->input('query');
-    $data = experts::where('E_Name', 'like', "%$query%")
+    $experts = experts::where('E_Name', 'like', "%$query%")
         ->orWhere('E_University', 'like', "%$query%")
         ->orWhere('E_Gender', 'like', "%$query%")
         ->orWhere('E_Address', 'like', "%$query%")
-        ->orWhere('E_Paper', 'like', "%$query%")
+        ->orWhere('E_Publication', 'like', "%$query%") // Add this line for publication search
         ->get();
 
-    return view('ManageExpertProfile.searchExpert', compact('data', 'query'));
+    return view('ManageExpertProfile.searchExpert', compact('experts', 'query'));
 }
 
     public function store(Request $request)
@@ -97,7 +102,11 @@ public function EditExpert($id)
         ]);
 
         
+<<<<<<< HEAD
     $experts->update([
+=======
+    $experts = update([
+>>>>>>> b5e0cda05ecf9b9fb06fd45de37efa363d096cdc
         'E_Name' => $request->E_Name,
         'E_Email' => $request->E_Email,
         'E_PhoneNum' => $request->E_PhoneNum,
