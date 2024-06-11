@@ -74,7 +74,7 @@
 									</a>
 
 									<div class="dropdown-menu dropdown-menu-end border-0 shadow" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href="{{ route('listexpert') }}">
+										<a class="dropdown-item" href="{{ route('listview') }}">
 											{{ __('View Expert') }}
 										</a>
 										<a class="dropdown-item" href="{{ route('addExpert') }}">
