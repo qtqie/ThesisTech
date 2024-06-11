@@ -102,11 +102,7 @@ public function EditExpert($id)
         ]);
 
         
-<<<<<<< HEAD
     $experts->update([
-=======
-    $experts = update([
->>>>>>> b5e0cda05ecf9b9fb06fd45de37efa363d096cdc
         'E_Name' => $request->E_Name,
         'E_Email' => $request->E_Email,
         'E_PhoneNum' => $request->E_PhoneNum,
